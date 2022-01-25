@@ -5,6 +5,23 @@
   }
 }
 
+.filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &__item {
+    width: 30%;
+    min-width: 300px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__input {
+    border: 2px solid grey;
+  }
+}
+
 
 .character {
   list-style-type: none;
@@ -16,8 +33,19 @@
   &__item {
     display: grid;
     place-items: center;
-    border: 2px solid black;
     padding: 15px 0;
+    &--gryffindor {
+      border: 2px solid #C1120C;
+    }
+    &--hufflepuff {
+      border: 2px solid #E8BB1F;
+    }
+    &--ravenclaw {
+      border: 2px solid #2C3D97;
+    }
+    &--slytherin {
+      border: 2px solid #308E49;
+    }
   }
   &__image {
     width: 150px;
