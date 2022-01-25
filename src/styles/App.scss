@@ -1,0 +1,31 @@
+.header {
+  padding: 10px;
+  &__title {
+    text-align: center;
+  }
+}
+
+
+.character {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  justify-content: center;
+  &__item {
+    display: grid;
+    place-items: center;
+    border: 2px solid black;
+    padding: 15px 0;
+  }
+  &__image {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    padding: 0 15px 15px;
+  }
+  &__name {
+    font-size: 16px;
+  }
+}
