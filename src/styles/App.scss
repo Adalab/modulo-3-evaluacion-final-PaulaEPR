@@ -1,7 +1,19 @@
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
   &__title {
     text-align: center;
+    font-family: 'Simonetta', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    
+  }
+  &__img {
+    width: 50px;
+    padding-bottom: 15px;
+    padding-right: 15px;
   }
 }
 
@@ -35,8 +47,6 @@
   padding: 10px;
   justify-content: center;
   &__item {
-    display: grid;
-    place-items: center;
     padding: 15px 0;
     &--gryffindor {
       border: 2px solid #C1120C;
@@ -50,6 +60,10 @@
     &--slytherin {
       border: 2px solid #308E49;
     }
+  }
+  &__link {
+    display: grid;
+    place-items: center;
   }
   &__image {
     width: 150px;
@@ -112,5 +126,17 @@
   &__info {
     //border: 2px solid #C1120C;
     padding: 15px;
+  }
+}
+
+/* Common Styles */
+.divider {
+  &::after {
+    content: " / ";
+  }
+  &:last-child {
+    &::after {
+      content: none;
+    }
   }
 }

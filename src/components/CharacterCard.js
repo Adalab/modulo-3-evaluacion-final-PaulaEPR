@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import defaultImage from '../images/default_image.jpg';
 
 const CharacterCard = (props) => {
@@ -18,11 +19,11 @@ const CharacterCard = (props) => {
     }
   };
   return (
-    <>
+    <Link to={`${props.character.house.toLowerCase()}/character/${props.character.id}`} className="character__link">
       <img className="character__image" src={image} alt="" />
-      <h3 className="character__name">{props.character.name}</h3>
+      <p className="character__name">{props.character.name}</p>
       <p className="character__species">{species()}</p>
-    </>
+    </Link>
   );
 };
 

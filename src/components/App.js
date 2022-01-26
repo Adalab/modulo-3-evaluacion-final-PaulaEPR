@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import '../styles/App.scss';
 import callToApi from '../services/api';
 import Header from './Header';
@@ -30,21 +30,35 @@ function App() {
     return character.name.toLowerCase().includes(filterCharacter.toLowerCase());
   });
 
+  const routeCharacterData = useRouteMatch('/:house/character/:charId');
+
+  const getRouteCharacter = () => {
+    if (routeCharacterData) {
+      const routeId = routeCharacterData.params.charId;
+      const routeCharacter = characters.find((character) => {
+        return character.id === routeId;
+      });
+      return routeCharacter || {};
+    }
+  };
+
   return (
     <div className="App">
       <Header />
       <main className="main">
-        <Route exact path="/">
-        <Filters
-          handleFilter={handleFilter}
-          filterCharacter={filterCharacter}
-          filterHouse={filterHouse}
-        />
-          <CharacterList characters={filteredCharacters} />
-        </Route>
-        <Route path="/harry">
-          <CharacterDetail />
-        </Route>
+        <Switch>
+          <Route exact path="/">
+            <Filters
+              handleFilter={handleFilter}
+              filterCharacter={filterCharacter}
+              filterHouse={filterHouse}
+            />
+            <CharacterList characters={filteredCharacters} />
+          </Route>
+          <Route path="/:house/character/:charId">
+            <CharacterDetail character={getRouteCharacter()} />
+          </Route>
+        </Switch>
       </main>
     </div>
   );
