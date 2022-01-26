@@ -1,4 +1,7 @@
 const Filters = (props) => {
+  const handleFilters = (ev) => {
+    ev.preventDefault()
+  }
   const handleInputCharacter = (ev) => {
     props.handleFilter({
       key: 'character',
@@ -12,7 +15,7 @@ const Filters = (props) => {
     });
   };
   return (
-    <form className="filter">
+    <form className="filter" onSubmit={handleFilters}>
       <div className="filter__item">
         <label htmlFor="character" className="filter__label">
           Busca por personaje:
