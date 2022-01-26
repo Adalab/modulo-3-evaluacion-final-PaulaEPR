@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
-import callToApi from '../services/api';
+import { Route, Switch } from 'react-router-dom';
 import '../styles/App.scss';
-import CharacterList from './CharacterList';
-import Filters from './Filters';
+import callToApi from '../services/api';
 import Header from './Header';
+import Filters from './Filters';
+import CharacterList from './CharacterList';
+import CharacterDetail from './CharacterDetail';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -31,12 +33,19 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Filters
-        handleFilter={handleFilter}
-        filterCharacter={filterCharacter}
-        filterHouse={filterHouse}
-      />
-      <CharacterList characters={filteredCharacters} />
+      <main className="main">
+        <Route exact path="/">
+        <Filters
+          handleFilter={handleFilter}
+          filterCharacter={filterCharacter}
+          filterHouse={filterHouse}
+        />
+          <CharacterList characters={filteredCharacters} />
+        </Route>
+        <Route path="/harry">
+          <CharacterDetail />
+        </Route>
+      </main>
     </div>
   );
 }
