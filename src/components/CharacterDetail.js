@@ -5,6 +5,10 @@ import shieldSlytherin from '../images/slytherin.svg';
 import back from '../images/back.svg';
 import defaultImage from '../images/default_image.jpg';
 
+const handleBackBtn = () => {
+  window.history.back();
+}
+
 const CharacterDetail = (props) => {
   const alternateNames = props.character.alternate_names.map((name, index) => {
     return (
@@ -66,14 +70,14 @@ const CharacterDetail = (props) => {
         </div>
         <h2 className="detail__name">{props.character.name}</h2>
 
-        <a href="/" className="detail__back">
+        <button className="detail__back" onClick={handleBackBtn}>
           Volver
           <img
             src={back}
             alt="Volver al inicio"
             className="detail__back--img"
           />
-        </a>
+        </button>
       </header>
       <main className="detail__main">
         <img
