@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.74bf84da.css",
-    "main.js": "./static/js/main.80061f55.js",
+    "main.css": "./static/css/main.e0e25f03.css",
+    "main.js": "./static/js/main.b10fe29c.js",
     "static/media/default_image.jpg": "./static/media/default_image.c44ca3d24929215f0f7f.jpg",
     "static/media/404.jpg": "./static/media/404.b0deee39024af13df05d.jpg",
     "static/media/ravenclaw.svg": "./static/media/ravenclaw.00bcaa772a998a88e55c51139ff5a489.svg",
@@ -9,13 +9,15 @@
     "static/media/gryffindor.svg": "./static/media/gryffindor.5dee0b45ef8e7784bd57f84e08928ab3.svg",
     "static/media/slytherin.svg": "./static/media/slytherin.de8732a55b839d354c4c2b5c2b00d23a.svg",
     "static/media/logo-icon.svg": "./static/media/logo-icon.c85c739024323308fec0f80f0b7f7ce6.svg",
+    "static/media/alive.svg": "./static/media/alive.8e5277e1b778c0292bc547e3c001a1cb.svg",
     "static/media/back.svg": "./static/media/back.bedf79e7afb1a2ca191c5d217636cf7a.svg",
+    "static/media/dead.svg": "./static/media/dead.c1f5b806f61b6327480b8f240c41438e.svg",
     "index.html": "./index.html",
-    "main.74bf84da.css.map": "./static/css/main.74bf84da.css.map",
-    "main.80061f55.js.map": "./static/js/main.80061f55.js.map"
+    "main.e0e25f03.css.map": "./static/css/main.e0e25f03.css.map",
+    "main.b10fe29c.js.map": "./static/js/main.b10fe29c.js.map"
   },
   "entrypoints": [
-    "static/css/main.74bf84da.css",
-    "static/js/main.80061f55.js"
+    "static/css/main.e0e25f03.css",
+    "static/js/main.b10fe29c.js"
   ]
 }
