@@ -30,4 +30,17 @@ const CharacterCard = (props) => {
   );
 };
 
+CharacterCard.defaultProps = {
+  character: {
+    image: defaultImage,
+    name: 'Personaje no encontrado',
+    species: 'No encontrada',
+    alive: 'No encontrado',
+    gender: 'No encontrado',
+    house: 'No encontrada',
+    alternate_names: [],
+    id: '',
+  },
+};
+
 export default CharacterCard;

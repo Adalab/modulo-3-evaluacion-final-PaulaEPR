@@ -7,6 +7,7 @@ import defaultImage from '../images/default_image.jpg';
 import aliveIcon from '../images/alive.svg';
 import deadIcon from '../images/dead.svg';
 import '../styles/components/CharacterDetail.scss';
+import PropTypes from 'prop-types';
 
 const handleBackBtn = () => {
   window.history.back();
@@ -103,7 +104,7 @@ const CharacterDetail = (props) => {
   
   return (
     <div className="detail__wrapper">
-      <article className={`detail ${props.character.house.toLowerCase()}`}>
+      <article className={`detail ${props.character.house.toLowerCase().replace(" ", "_")}`}>
         <header className={`detail__header bottom`}>
           <div className="detail__shield">
             <img
@@ -123,7 +124,7 @@ const CharacterDetail = (props) => {
           </button>
         </header>
         <main className="detail__main">
-          <img src={charImage()} alt="" className={`detail__image ${props.character.house.toLowerCase()}`}/>
+          <img src={charImage()} alt="" className={`detail__image ${props.character.house.toLowerCase().replace(" ", "_")}`}/>
           <ul className="detail__info">
             <li className="detail__info--item">
               <strong>Casa:</strong> {props.character.house}
@@ -159,6 +160,17 @@ CharacterDetail.defaultProps = {
     alternate_names: [],
     id: '',
   },
+};
+
+CharacterDetail.propTypes = {
+  image: PropTypes.string,
+  name: PropTypes.string,
+  species: PropTypes.string,
+  alive: PropTypes.bool,
+  gender: PropTypes.string,
+  house: PropTypes.string,
+  alternate_names: PropTypes.array,
+  id: PropTypes.string,
 };
 
 export default CharacterDetail;

@@ -1,12 +1,12 @@
 import image404 from '../images/404.jpg';
-import shield from '../images/gryffindor.svg';
+import shield from '../images/shield_not_found.svg';
 import back from '../images/back.svg';
 
 const NotFound = () => {
   return (
     <div className="detail__wrapper">
-      <article className="detail">
-        <header className="detail__header">
+      <article className="detail not_found">
+        <header className="detail__header bottom">
           <div className="detail__shield">
             <img
               src={shield}
@@ -14,7 +14,7 @@ const NotFound = () => {
               className="detail__shield--img"
             />
           </div>
-          <h2 className="detail__name">Página no encontrada</h2>
+          <h2 className="detail__name">No encontrado</h2>
           <a className="detail__back" href="/">
             Volver
             <img

@@ -46,6 +46,8 @@ function App() {
     }
   };
 
+  console.log(filteredCharacters)
+
   return (
     <div className="App">
       <Header />
@@ -57,7 +59,8 @@ function App() {
               filterCharacter={filterCharacter}
               filterHouse={filterHouse}
             />
-            <CharacterList characters={filteredCharacters} />
+            {filteredCharacters.length !== 0 ? <CharacterList characters={filteredCharacters} /> : <Route component={NotFound} />}
+            
           </Route>
           <Route path="/:house/character/:charId">
             <CharacterDetail character={getRouteCharacter()} />
