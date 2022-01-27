@@ -1,0 +1,34 @@
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin corner {
+  border-radius: 2px;
+}
+
+@mixin houses($border, $bkg, $text) {
+  border: 2px solid $border;
+  background-color: $bkg;
+  & .character__name,
+  .character__species {
+    color: $text;
+  }
+}
+
+@mixin houseDetail($color) {
+  border: 2px solid $color;
+  border-radius: 2px;
+  & .detail__image {
+    background-color: $color;
+  }
+  .bottom {
+    border-bottom: 2px solid $color;
+  }
+}

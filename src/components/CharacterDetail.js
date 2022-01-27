@@ -103,8 +103,8 @@ const CharacterDetail = (props) => {
   
   return (
     <div className="detail__wrapper">
-      <article className="detail">
-        <header className="detail__header">
+      <article className={`detail ${props.character.house.toLowerCase()}`}>
+        <header className={`detail__header bottom`}>
           <div className="detail__shield">
             <img
               src={shield()}
@@ -123,7 +123,7 @@ const CharacterDetail = (props) => {
           </button>
         </header>
         <main className="detail__main">
-          <img src={charImage()} alt="" className="detail__image" />
+          <img src={charImage()} alt="" className={`detail__image ${props.character.house.toLowerCase()}`}/>
           <ul className="detail__info">
             <li className="detail__info--item">
               <strong>Casa:</strong> {props.character.house}

@@ -1,3 +1,5 @@
+@import '../core/variables.scss';
+
 .filter {
   display: flex;
   flex-direction: column;
@@ -11,9 +13,10 @@
     flex-direction: column;
   }
   &__label {
-    color: #ebebeb;
+    color: $greyLight;
   }
   &__input {
-    border: 2px solid #6b6b6b;
+    border: 2px solid $greyMedium;
+    border-radius: 2px;
   }
 }

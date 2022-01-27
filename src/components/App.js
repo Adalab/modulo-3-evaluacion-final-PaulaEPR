@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
-import '../styles/App.scss';
+import '../styles/components/App.scss';
 import callToApi from '../services/api';
 import Header from './Header';
 import Filters from './Filters';

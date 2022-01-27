@@ -1,11 +1,10 @@
+@import '../core/mixins.scss';
+@import '../core/variables.scss';
+
 .detail {
   max-width: 600px;
   min-width: 450px;
-  background-color: #6b6b6b;
-
-/*   border: 2px solid #831e1a;
-  background-color: #c1120c; */
-  
+  background-color: $greyMedium;
   &__wrapper {
     height: calc(100vh - 85px);
   }
@@ -14,7 +13,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: #d1d1d1;
+    background-color: $grey;
   }
   &__shield,
   &__back {
@@ -87,3 +86,20 @@
   padding-left: 3px;
   margin-bottom: -2px;
 }
+
+.gryffindor {
+  @include houseDetail($gryffindorDark);
+}
+
+.hufflepuff {
+  @include houseDetail($hufflepuffDark);
+}
+
+.ravenclaw {
+  @include houseDetail($ravenclawDark);
+}
+
+.slytherin {
+  @include houseDetail($slytherinDark);
+}
+

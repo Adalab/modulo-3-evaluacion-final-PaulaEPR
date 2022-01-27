@@ -1,3 +1,5 @@
+@import '../core/variables.scss';
+
 .header {
   position: fixed;
   width: 100%;
@@ -5,14 +7,14 @@
   align-items: center;
   justify-content: center;
   padding: 10px 10px 0;
-  background-color: #6b6b6b;
+  background-color: $greyMedium;
 
   &__title {
     text-align: center;
     font-family: 'Simonetta', sans-serif;
     font-weight: 900;
     font-style: italic;
-    color: #ebebeb;
+    color: $greyLight;
   }
   &__img {
     width: 50px;
