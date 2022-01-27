@@ -21,8 +21,10 @@ const CharacterCard = (props) => {
   return (
     <Link to={`${props.character.house.toLowerCase()}/character/${props.character.id}`} className="character__link">
       <img className="character__image" src={image} alt="" />
-      <p className="character__name">{props.character.name}</p>
-      <p className="character__species">{species()}</p>
+      <div className="character__info">
+        <p className="character__name">{props.character.name}</p>
+        <p className="character__species">—{species()}—</p>
+      </div>
     </Link>
   );
 };

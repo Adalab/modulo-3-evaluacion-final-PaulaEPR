@@ -6,6 +6,7 @@ import Header from './Header';
 import Filters from './Filters';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
+import NotFound from './NotFound';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -35,6 +36,10 @@ function App() {
   const getRouteCharacter = () => {
     if (routeCharacterData) {
       const routeId = routeCharacterData.params.charId;
+      const routeHouse = routeCharacterData.params.house;
+      if (routeHouse !== filterHouse) {
+        setFilterHouse(routeHouse)
+      }
       return characters.find((character) => {
          return character.id === routeId;
       });
@@ -57,6 +62,7 @@ function App() {
           <Route path="/:house/character/:charId">
             <CharacterDetail character={getRouteCharacter()} />
           </Route>
+          <Route component={NotFound} />
         </Switch>
       </main>
     </div>
