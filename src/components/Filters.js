@@ -1,3 +1,5 @@
+import '../styles/components/Filters.scss';
+
 const Filters = (props) => {
   const handleFilters = (ev) => {
     ev.preventDefault()

@@ -1,5 +1,6 @@
 import logo from '../images/logo-icon.svg';
 import { Link } from 'react-router-dom';
+import '../styles/components/Header.scss';
 
 const Header = () => {
   return (

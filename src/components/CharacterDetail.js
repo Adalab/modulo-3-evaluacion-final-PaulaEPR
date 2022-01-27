@@ -4,6 +4,9 @@ import shieldRavenclaw from '../images/ravenclaw.svg';
 import shieldSlytherin from '../images/slytherin.svg';
 import back from '../images/back.svg';
 import defaultImage from '../images/default_image.jpg';
+import aliveIcon from '../images/alive.svg';
+import deadIcon from '../images/dead.svg';
+import '../styles/components/CharacterDetail.scss';
 
 const handleBackBtn = () => {
   window.history.back();
@@ -74,6 +77,20 @@ const CharacterDetail = (props) => {
     }
   };
 
+  const status = () => {
+    if (props.character.alive !== 'No encontrado') {
+      if (!props.character.alive) {
+      return (
+        <img className="icon" src={deadIcon} alt="Icono muerto" />
+      )
+      } else {
+      return (
+        <img className="icon" src={aliveIcon} alt="Icono vivo" />
+      )
+      }
+    }
+  }
+
   const gender = () => {
     if (props.character.gender === 'No encontrado') {
       return 'No encontrado';
@@ -112,14 +129,15 @@ const CharacterDetail = (props) => {
               <strong>Casa:</strong> {props.character.house}
             </li>
             <li className="detail__info--item">
-              <strong>Estatus:</strong>{' '}
+              <strong>Estatus: </strong>
               {alive()}
+              {status()}
             </li>
             <li className="detail__info--item">
-              <strong>Especie:</strong> {species()}
+              <strong>Especie: </strong>{species()}
             </li>
             <li className="detail__info--item">
-              <strong>Género:</strong>{' '}
+              <strong>Género: </strong>
               {gender()}
             </li>
             {showAltNames()}
