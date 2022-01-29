@@ -21,6 +21,12 @@
     &--slytherin {
       @include houses($slytherinDark, $slytherinLight, $greyLight);
     }
+    &--not-found {
+      @include houses($greyMedium, $grey, $greyDarker);
+      & .character__image {
+        filter: grayscale(100%);
+      }
+    }
   }
   &__link {
     display: grid;

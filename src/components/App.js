@@ -6,7 +6,8 @@ import Header from './Header';
 import Filters from './Filters';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
-import NotFound from './NotFound';
+import NotFoundPage from './NotFoundPage';
+import NotFoundChar from './NotFoundChar';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -46,28 +47,25 @@ function App() {
     }
   };
 
-  console.log(filteredCharacters)
-
   return (
     <div className="App">
       <Header />
-      <main className="main">
-        <Switch>
-          <Route exact path="/">
-            <Filters
-              handleFilter={handleFilter}
-              filterCharacter={filterCharacter}
-              filterHouse={filterHouse}
-            />
-            {filteredCharacters.length !== 0 ? <CharacterList characters={filteredCharacters} /> : <Route component={NotFound} />}
-            
-          </Route>
-          <Route path="/:house/character/:charId">
-            <CharacterDetail character={getRouteCharacter()} />
-          </Route>
-          <Route component={NotFound} />
-        </Switch>
-      </main>
+        <main className="main">
+          <Switch>
+            <Route exact path="/">
+                <Filters
+                  handleFilter={handleFilter}
+                  filterCharacter={filterCharacter}
+                  filterHouse={filterHouse}
+                />
+                {filteredCharacters.length !== 0 ? <CharacterList characters={filteredCharacters} /> : <Route component={NotFoundChar} />}
+            </Route>
+            <Route path="/:house/character/:charId">
+                <CharacterDetail character={getRouteCharacter()} />
+            </Route>
+            <Route component={NotFoundPage} />
+          </Switch>
+        </main>
     </div>
   );
 }

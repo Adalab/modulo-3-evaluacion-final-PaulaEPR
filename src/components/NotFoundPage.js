@@ -1,6 +1,6 @@
 import image404 from '../images/404.jpg';
 import shield from '../images/shield_not_found.svg';
-import back from '../images/back.svg';
+import back from '../images/icon/back.svg';
 
 const NotFound = () => {
   return (
