@@ -1,21 +1,36 @@
 @import '../core/variables.scss';
+@import '../core/mixins.scss';
 
 .filter {
-
+  width: 100%;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  padding: 10px;
+  background-color: $greyDarkTrans;
+  box-shadow: 0px -10px  $greyDarkTrans, 0px 10px 10px $greyDarkTrans;
+  @include tablet {
+    width: 20%;
+    min-height: calc(100vh - 105px);
+    place-self: start stretch;
+    justify-content: start;
+  }
   &__item {
     width: 30%;
     min-width: 300px;
     height: 50px;
     display: flex;
     flex-direction: column;
+    @include tablet {
+      width: 70%;
+      min-width: 150px;
+    }
   }
   &__label {
     color: $greyLight;
+    text-shadow: 1px 1px 1px $greyDarker;
   }
   &__input {
     border: 2px solid $greyMedium;

@@ -139,58 +139,60 @@ const CharacterDetail = (props) => {
   };
 
   return (
-    <article
-      className={`detail ${props.character.house
-        .toLowerCase()
-        .replace(' ', '_')}`}
-    >
-      <header className={`detail__header bottom`}>
-        <div className="detail__shield">
+    <div className="detail__wrapper">
+      <article
+        className={`detail ${props.character.house
+          .toLowerCase()
+          .replace(' ', '_')}`}
+      >
+        <header className={`detail__header bottom`}>
+          <div className="detail__shield">
+            <img
+              src={shield()}
+              alt={`Escudo de ${props.character.house}`}
+              className="detail__shield--img"
+            />
+          </div>
+          <h2 className="detail__name">{props.character.name}</h2>
+          <button className="detail__back" onClick={handleBackBtn}>
+            Volver
+            <img
+              src={back}
+              alt="Volver al inicio"
+              className="detail__back--img"
+            />
+          </button>
+        </header>
+        <main className="detail__main">
           <img
-            src={shield()}
-            alt={`Escudo de ${props.character.house}`}
-            className="detail__shield--img"
+            src={image}
+            alt=""
+            className={`detail__image ${props.character.house
+              .toLowerCase()
+              .replace(' ', '_')}`}
           />
-        </div>
-        <h2 className="detail__name">{props.character.name}</h2>
-        <button className="detail__back" onClick={handleBackBtn}>
-          Volver
-          <img
-            src={back}
-            alt="Volver al inicio"
-            className="detail__back--img"
-          />
-        </button>
-      </header>
-      <main className="detail__main">
-        <img
-          src={image}
-          alt=""
-          className={`detail__image ${props.character.house
-            .toLowerCase()
-            .replace(' ', '_')}`}
-        />
-        <ul className="detail__info">
-          <li className="detail__info--item">
-            <strong>Casa:</strong> {props.character.house}
-          </li>
-          <li className="detail__info--item">
-            <strong>Estatus: </strong>
-            {alive()}
-            {status()}
-          </li>
-          <li className="detail__info--item">
-            <strong>Especie: </strong>
-            {species()}
-          </li>
-          <li className="detail__info--item">
-            <strong>Género: </strong>
-            {gender()}
-          </li>
-          {showAltNames()}
-        </ul>
-      </main>
-    </article>
+          <ul className="detail__info">
+            <li className="detail__info--item">
+              <strong>Casa:</strong> {props.character.house}
+            </li>
+            <li className="detail__info--item">
+              <strong>Estatus: </strong>
+              {alive()}
+              {status()}
+            </li>
+            <li className="detail__info--item">
+              <strong>Especie: </strong>
+              {species()}
+            </li>
+            <li className="detail__info--item">
+              <strong>Género: </strong>
+              {gender()}
+            </li>
+            {showAltNames()}
+          </ul>
+        </main>
+      </article>
+    </div>
   );
 };
 
