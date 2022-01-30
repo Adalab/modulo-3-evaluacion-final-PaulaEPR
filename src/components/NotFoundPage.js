@@ -1,4 +1,4 @@
-import image404 from '../images/404.jpg';
+import image404 from '../images/404.webp';
 import shield from '../images/shield_not_found.svg';
 import back from '../images/icon/back.svg';
 
