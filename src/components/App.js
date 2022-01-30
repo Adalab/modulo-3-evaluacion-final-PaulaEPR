@@ -28,6 +28,11 @@ function App() {
     }
   };
 
+  const resetBtn = () => {
+    setFilterCharacter('');
+    setFilterHouse('gryffindor');
+  };
+
   const filteredCharacters = characters.filter((character) => {
     return character.name.toLowerCase().includes(filterCharacter.toLowerCase());
   });
@@ -39,10 +44,10 @@ function App() {
       const routeId = routeCharacterData.params.charId;
       const routeHouse = routeCharacterData.params.house;
       if (routeHouse !== filterHouse) {
-        setFilterHouse(routeHouse)
+        setFilterHouse(routeHouse);
       }
       return characters.find((character) => {
-         return character.id === routeId;
+        return character.id === routeId;
       });
     }
   };
@@ -50,22 +55,29 @@ function App() {
   return (
     <div className="App">
       <Header />
-        <main className="main">
-          <Switch>
-            <Route exact path="/">
-                <Filters
-                  handleFilter={handleFilter}
-                  filterCharacter={filterCharacter}
-                  filterHouse={filterHouse}
-                />
-                {filteredCharacters.length !== 0 ? <CharacterList characters={filteredCharacters} /> : <Route component={NotFoundChar} />}
-            </Route>
-            <Route path="/:house/character/:charId">
-                <CharacterDetail character={getRouteCharacter()} />
-            </Route>
-            <Route component={NotFoundPage} />
-          </Switch>
-        </main>
+      <main className="main">
+        <Switch>
+          <Route exact path="/">
+            <Filters
+              handleFilter={handleFilter}
+              filterCharacter={filterCharacter}
+              filterHouse={filterHouse}
+              resetBtn={resetBtn}
+            />
+            {filteredCharacters.length !== 0 ? (
+              <CharacterList
+                characters={filteredCharacters} 
+              />
+            ) : (
+              <Route component={NotFoundChar} />
+            )}
+          </Route>
+          <Route path="/:house/character/:charId">
+            <CharacterDetail character={getRouteCharacter()} />
+          </Route>
+          <Route component={NotFoundPage} />
+        </Switch>
+      </main>
     </div>
   );
 }

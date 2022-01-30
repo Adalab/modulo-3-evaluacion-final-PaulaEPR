@@ -1,9 +1,12 @@
 import '../styles/components/Filters.scss';
 
 const Filters = (props) => {
-  const handleFilters = (ev) => {
-    ev.preventDefault()
-  }
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+  };
+  const handleReset = () => {
+    props.resetBtn();
+  };
   const handleInputCharacter = (ev) => {
     props.handleFilter({
       key: 'character',
@@ -17,7 +20,7 @@ const Filters = (props) => {
     });
   };
   return (
-    <form className="filter" onSubmit={handleFilters}>
+    <form className="filter" onSubmit={handleSubmit} >
       <div className="filter__item">
         <label htmlFor="character" className="filter__label">
           Busca por personaje:
@@ -47,7 +50,9 @@ const Filters = (props) => {
           <option value="ravenclaw">Ravenclaw</option>
           <option value="slytherin">Slytherin</option>
         </select>
+
       </div>
+      <button type="reset" className="filter__button" onClick={handleReset}>Reset</button>
     </form>
   );
 };

@@ -16,6 +16,7 @@
     min-height: calc(100vh - 105px);
     place-self: start stretch;
     justify-content: start;
+    box-shadow: 10px -10px 10px $greyDarkTrans, 0 -10px 10px $greyDarkTrans;
   }
   &__item {
     width: 30%;
@@ -35,5 +36,18 @@
   &__input {
     border: 2px solid $greyMedium;
     @include corner;
+  }
+  &__button {
+    width: 30%;
+    min-width: 300px;
+    color: $greyLight;
+    background-color: $greyDark;
+    border: 2px solid $greyMedium;
+    margin-top: 10px;
+    @include corner;
+    @include tablet {
+      width: 70%;
+      min-width: 150px;
+    }
   }
 }

@@ -49,7 +49,7 @@ Al hacer clic sobre un personaje debe pasar lo siguiente:
     - [x]  Mostrar la casa con su respectivo emblema
     - [x]  Si un personaje está vivo o muerto con su respectivo icono.
 - [x]  Usar algún sistema de grid para pintar el listado de personajes.
-- [ ]  Que funcione bien el responsive en dispositivos pequeños.
+- [x]  Que funcione bien el responsive en dispositivos pequeños.
 
 ### 7. BONUS: URL compartible
 
