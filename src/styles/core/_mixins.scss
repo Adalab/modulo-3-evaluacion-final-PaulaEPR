@@ -10,7 +10,7 @@
 }
 
 @mixin corner {
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 @mixin houses($border, $bkg, $text) {
@@ -20,15 +20,30 @@
   .character__species {
     color: $text;
   }
+  & .character__image {
+    border: 2px solid $border;
+    background-color: $border;
+  }
 }
 
-@mixin houseDetail($color) {
-  border: 2px solid $color;
-  border-radius: 2px;
-  & .detail__image {
-    background-color: $color;
+@mixin houseDetail($colorDark, $colorLight, $colorText) {
+  background-color: $colorLight;
+  border: 2px solid $colorDark;
+  @include corner;
+  & .detail {
+    &__name, &__back {
+      text-shadow: 2px 2px 3px $colorDark;
+    }
+    &__image {
+      background-color: $colorDark;
+      border: 2px solid $colorDark;
+      @include corner;
+    }
+    &__info {
+      color: $colorText;
+    }
   }
   .bottom {
-    border-bottom: 2px solid $color;
+    border-bottom: 2px solid $colorDark;
   }
 }

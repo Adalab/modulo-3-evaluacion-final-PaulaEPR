@@ -11,8 +11,10 @@ import defaultHufflepuffM from '../images/default/default_hufflepuff_m.jpg';
 import defaultRavenclawM from '../images/default/default_ravenclaw_m.jpg';
 import defaultSlytherinM from '../images/default/default_slytherin_m.jpg';
 import back from '../images/icon/back.svg';
-import aliveIcon from '../images/icon/alive.svg';
-import deadIcon from '../images/icon/dead.svg';
+import aliveIconB from '../images/icon/alive_b.svg';
+import aliveIconW from '../images/icon/alive_w.svg';
+import deadIconB from '../images/icon/dead_b.svg';
+import deadIconW from '../images/icon/dead_w.svg';
 import '../styles/components/CharacterDetail.scss';
 import PropTypes from 'prop-types';
 
@@ -67,7 +69,7 @@ const CharacterDetail = (props) => {
       return (
         <li>
           <strong class="block">Otros nombres: </strong>
-          {alternateNames}
+          — {alternateNames}
         </li>
       );
   };
@@ -120,10 +122,24 @@ const CharacterDetail = (props) => {
 
   const status = () => {
     if (props.character.alive !== 'No encontrado') {
-      if (props.character.alive) {
-        return <img className="icon" src={aliveIcon} alt="Icono vivo" />;
-      } else {
-        return <img className="icon" src={deadIcon} alt="Icono muerto" />;
+      if (
+        props.character.house === 'Gryffindor' ||
+        props.character.house === 'Hufflepuff'
+      ) {
+        if (props.character.alive) {
+          return <img className="icon" src={aliveIconB} alt="Icono vivo" />;
+        } else {
+          return <img className="icon" src={deadIconB} alt="Icono muerto" />;
+        }
+      } else if (
+        props.character.house === 'Ravenclaw' ||
+        props.character.house === 'Slytherin'
+      ) {
+        if (props.character.alive) {
+          return <img className="icon" src={aliveIconW} alt="Icono vivo" />;
+        } else {
+          return <img className="icon" src={deadIconW} alt="Icono muerto" />;
+        }
       }
     }
   };

@@ -2,18 +2,38 @@
 @import '../core/variables.scss';
 
 .detail {
-  max-width: 600px;
-  min-width: 450px;
-  background-color: $greyMedium;
+  @include tablet {
+    min-width: 600px;
+    min-height: 400px;
+  }
+  &.gryffindor,
+  &.no_encontrada {
+    @include houseDetail($gryffindorDark, $gryffindorLight, $greyDarker);
+  }
+  &.hufflepuff {
+    @include houseDetail($hufflepuffDark, $hufflepuffLight, $greyDarker);
+  }
+  &.ravenclaw {
+    @include houseDetail($ravenclawDark, $ravenclawLight, $greyLight);
+  }
+  &.slytherin {
+    @include houseDetail($slytherinDark, $slytherinLight, $greyLight);
+  }
+  &.not_found {
+    @include houseDetail($greyDarker, $greyMedium, $greyLight);
+  }
   &__wrapper {
-    place-self: center;
+    padding: 15px;
+    @include tablet {
+      place-self: center;
+    }
   }
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: $grey;
+    background-color: $greyDarkTrans;
   }
   &__shield,
   &__back {
@@ -25,21 +45,31 @@
   }
   &__back {
     border: none;
+    justify-content: flex-end;
+    @include tablet {
+      font-size: 18px;
+    }
     &--img {
       width: 20px;
     }
   }
-  &__back {
-    justify-content: flex-end;
-  }
   &__name {
     padding: 5px;
+    color: $greyDarker;
+    text-align: center;
+    @include tablet {
+      font-size: 28px;
+    }
   }
   &__main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     padding: 15px 30px;
     gap: 15px;
+    @include tablet {
+      flex-direction: row;
+    }
     &--404 {
       display: flex;
       justify-content: center;
@@ -50,7 +80,12 @@
     width: 150px;
     height: 200px;
     object-fit: cover;
-    place-self: center end;
+    place-self: center;
+    @include tablet {
+      width: 225px;
+      height: 300px;
+      place-self: center;
+    }
     &--404 {
       width: 300px;
       height: 200px;
@@ -60,8 +95,17 @@
   &__info {
     max-width: 200px;
     place-self: center;
+    text-align: center;
+    @include tablet {
+      font-size: 18px;
+      text-align: left;
+      padding-left: 15px;
+    }
     &--item {
       line-height: 28px;
+      @include tablet {
+        line-height: 32px;
+      }
     }
   }
 }
@@ -79,31 +123,11 @@
 
 .block {
   display: block;
+  padding-bottom: 5px;
 }
 
 .icon {
   width: 20px;
   padding-left: 3px;
   margin-bottom: -2px;
-}
-
-.gryffindor,
-.no_encontrada {
-  @include houseDetail($gryffindorDark);
-}
-
-.hufflepuff {
-  @include houseDetail($hufflepuffDark);
-}
-
-.ravenclaw {
-  @include houseDetail($ravenclawDark);
-}
-
-.slytherin {
-  @include houseDetail($slytherinDark);
-}
-
-.not_found {
-  @include houseDetail($greyDarker);
 }

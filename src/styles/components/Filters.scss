@@ -34,6 +34,6 @@
   }
   &__input {
     border: 2px solid $greyMedium;
-    border-radius: 2px;
+    @include corner;
   }
 }
