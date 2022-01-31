@@ -58,6 +58,6 @@ Al hacer clic sobre un personaje debe pasar lo siguiente:
 
 ### 8 BONUS: Ordenación, más filtros y botón reset
 
-- [ ]  Ordenar el listado de personajes alfabéticamente por nombre
-- [ ]  Filtro de género
+- [x]  Ordenar el listado de personajes alfabéticamente por nombre
+- [x]  Filtro de género
 - [x]  Botón de reset para que la página vuelva al listado principal
