@@ -13,30 +13,67 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const [filterCharacter, setFilterCharacter] = useState('');
   const [filterHouse, setFilterHouse] = useState('gryffindor');
+  const [filterGender, setFilterGender] = useState('all');
+  const [filterSort, setFilterSort] = useState(false);
 
+  //Call to API
   useEffect(() => {
     callToApi(filterHouse).then((response) => {
       setCharacters(response);
     });
   }, [filterHouse]);
 
+  //Handle Filters & Reset
   const handleFilter = (data) => {
     if (data.key === 'character') {
       setFilterCharacter(data.value);
     } else if (data.key === 'house') {
       setFilterHouse(data.value);
+    } else if (data.key === 'gender') {
+      setFilterGender(data.value);
+    } else if (data.key === 'sort') {
+      setFilterSort(data.checked);
     }
   };
 
   const resetBtn = () => {
     setFilterCharacter('');
     setFilterHouse('gryffindor');
+    setFilterGender('all');
+    setFilterSort(false)
   };
 
-  const filteredCharacters = characters.filter((character) => {
-    return character.name.toLowerCase().includes(filterCharacter.toLowerCase());
-  });
+  //Filter and Sort characters
+  const filteredCharacters = characters
+    .filter((character) => {
+      return character.name
+        .toLowerCase()
+        .includes(filterCharacter.toLowerCase());
+    })
+    .filter((character) => {
+      return filterGender === 'all' ? true : character.gender === filterGender;
+    });
 
+    const filteredCharactersSort = characters
+    .filter((character) => {
+      return character.name
+        .toLowerCase()
+        .includes(filterCharacter.toLowerCase());
+    })
+    .filter((character) => {
+      return filterGender === 'all' ? true : character.gender === filterGender;
+    })
+    .sort((a, b) => {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      return 0;
+    });
+
+  //Handle Routes
   const routeCharacterData = useRouteMatch('/:house/character/:charId');
 
   const getRouteCharacter = () => {
@@ -62,12 +99,12 @@ function App() {
               handleFilter={handleFilter}
               filterCharacter={filterCharacter}
               filterHouse={filterHouse}
+              filterGender={filterGender}
+              filterSort={filterSort}
               resetBtn={resetBtn}
             />
             {filteredCharacters.length !== 0 ? (
-              <CharacterList
-                characters={filteredCharacters} 
-              />
+              <CharacterList characters={filterSort ? filteredCharactersSort : filteredCharacters} />
             ) : (
               <Route component={NotFoundChar} />
             )}

@@ -6,7 +6,7 @@
     min-width: 600px;
     min-height: 400px;
   }
-  &.gryffindor {
+  &.gryffindor, &.no_encontrada {
     @include houseDetail($gryffindorDark, $gryffindorLight, $greyDarker);
   }
   &.hufflepuff {

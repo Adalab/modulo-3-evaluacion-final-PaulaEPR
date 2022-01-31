@@ -60,4 +60,4 @@ Al hacer clic sobre un personaje debe pasar lo siguiente:
 
 - [ ]  Ordenar el listado de personajes alfabéticamente por nombre
 - [ ]  Filtro de género
-- [ ]  Botón de reset para que la página vuelva al listado principal
+- [x]  Botón de reset para que la página vuelva al listado principal
