@@ -9,7 +9,7 @@ const Filters = (props) => {
   const handleReset = () => {
     props.resetBtn();
   };
-  
+
   //Handle Inputs
   const handleInputs = (ev) => {
     props.handleFilter({
@@ -66,6 +66,19 @@ const Filters = (props) => {
           <option value="female">Mujer</option>
           <option value="male">Hombre</option>
         </select>
+      </div>
+      <div className="filter__item">
+        <label htmlFor="alternate" className="filter__label">
+          Busca por nombres alternativos:
+        </label>
+        <input
+          type="number"
+          className="filter__input"
+          name="alternate"
+          id="alternate"
+          value={props.filterAlternate}
+          onChange={handleInputs}
+        />
       </div>
       <div className="filter__checkbox">
         <input

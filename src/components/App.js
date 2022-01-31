@@ -15,6 +15,7 @@ function App() {
   const [filterHouse, setFilterHouse] = useState('gryffindor');
   const [filterGender, setFilterGender] = useState('all');
   const [filterSort, setFilterSort] = useState(false);
+  const [filterAlternate, setFilterAlternate] = useState(0);
 
   //Call to API
   useEffect(() => {
@@ -33,6 +34,8 @@ function App() {
       setFilterGender(data.value);
     } else if (data.key === 'sort') {
       setFilterSort(data.checked);
+    } else if (data.key === 'alternate') {
+      setFilterAlternate(data.value);
     }
   };
 
@@ -52,7 +55,17 @@ function App() {
     })
     .filter((character) => {
       return filterGender === 'all' ? true : character.gender === filterGender;
-    });
+    })
+    .filter((character) => { 
+      return character.alternate_names
+
+    })
+    .filter((character) => { 
+      if (character.alternate_names.length === parseInt(filterAlternate)) {
+        return true
+      }
+    return false
+  });
 
     const filteredCharactersSort = characters
     .filter((character) => {
@@ -71,6 +84,12 @@ function App() {
         return -1;
       }
       return 0;
+    })
+    .filter((character) => { 
+        if (character.alternate_names.length === parseInt(filterAlternate)) {
+          return true
+        }
+      return false
     });
 
   //Handle Routes
@@ -101,6 +120,7 @@ function App() {
               filterHouse={filterHouse}
               filterGender={filterGender}
               filterSort={filterSort}
+              filterAlternate={filterAlternate}
               resetBtn={resetBtn}
             />
             {filteredCharacters.length !== 0 ? (
