@@ -67,18 +67,19 @@ const Filters = (props) => {
           <option value="male">Hombre</option>
         </select>
       </div>
-      <div className="filter__item">
-        <label htmlFor="alternate" className="filter__label">
-          Busca por nombres alternativos:
-        </label>
+      <div className="filter__checkbox">
         <input
-          type="number"
+          type="checkbox"
           className="filter__input"
-          name="alternate"
+          name="checkboxs"
           id="alternate"
           value={props.filterAlternate}
+          checked={props.filterAlternate}
           onChange={handleInputs}
         />
+        <label htmlFor="sort" className="filter__label">
+        Nombres alternativos
+        </label>
       </div>
       <div className="filter__checkbox">
         <input

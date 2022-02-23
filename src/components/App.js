@@ -15,7 +15,7 @@ function App() {
   const [filterHouse, setFilterHouse] = useState('gryffindor');
   const [filterGender, setFilterGender] = useState('all');
   const [filterSort, setFilterSort] = useState(false);
-  const [filterAlternate, setFilterAlternate] = useState(0);
+  const [filterAlternate, setFilterAlternate] = useState(false);
 
   //Call to API
   useEffect(() => {
@@ -35,7 +35,7 @@ function App() {
     } else if (data.key === 'sort') {
       setFilterSort(data.checked);
     } else if (data.key === 'alternate') {
-      setFilterAlternate(data.value);
+      setFilterAlternate(data.checked);
     }
   };
 
@@ -43,7 +43,8 @@ function App() {
     setFilterCharacter('');
     setFilterHouse('gryffindor');
     setFilterGender('all');
-    setFilterSort(false)
+    setFilterSort(false);
+    setFilterAlternate(false);
   };
 
   //Filter and Sort characters
@@ -56,40 +57,8 @@ function App() {
     .filter((character) => {
       return filterGender === 'all' ? true : character.gender === filterGender;
     })
-    .filter((character) => { 
-      return character.alternate_names
-
-    })
-    .filter((character) => { 
-      if (character.alternate_names.length === parseInt(filterAlternate)) {
-        return true
-      }
-    return false
-  });
-
-    const filteredCharactersSort = characters
     .filter((character) => {
-      return character.name
-        .toLowerCase()
-        .includes(filterCharacter.toLowerCase());
-    })
-    .filter((character) => {
-      return filterGender === 'all' ? true : character.gender === filterGender;
-    })
-    .sort((a, b) => {
-      if (a.name > b.name) {
-        return 1;
-      }
-      if (a.name < b.name) {
-        return -1;
-      }
-      return 0;
-    })
-    .filter((character) => { 
-        if (character.alternate_names.length === parseInt(filterAlternate)) {
-          return true
-        }
-      return false
+      return filterAlternate ? character.alternate_names.length > 0 : true;
     });
 
   //Handle Routes
@@ -115,16 +84,30 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Filters
-              handleFilter={handleFilter}
               filterCharacter={filterCharacter}
               filterHouse={filterHouse}
               filterGender={filterGender}
               filterSort={filterSort}
               filterAlternate={filterAlternate}
+              handleFilter={handleFilter}
               resetBtn={resetBtn}
             />
             {filteredCharacters.length !== 0 ? (
-              <CharacterList characters={filterSort ? filteredCharactersSort : filteredCharacters} />
+              <CharacterList
+                characters={
+                  filterSort
+                    ? filteredCharacters.sort((a, b) => {
+                        if (a.name > b.name) {
+                          return 1;
+                        }
+                        if (a.name < b.name) {
+                          return -1;
+                        }
+                        return 0;
+                      })
+                    : filteredCharacters
+                }
+              />
             ) : (
               <Route component={NotFoundChar} />
             )}
