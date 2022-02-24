@@ -1,6 +1,49 @@
-# Módulo 3: Ejercicio de evaluación final
+# Buscador de personajes de Harry Potter
+
+Buscador de personajes de Harry Potter que te permite filtrarlos y visualizar información más detallada de cada personaje. Te permite filtrar por nombre, casa, género, si tiene otros nombres alternativos, y además puedes ordenar el listado. También puedes compartir las url de cada personaje porque son url únicas que se mantienen.
+
 [![Autor](https://img.shields.io/badge/autor-Paula%20Perera-red)](https://github.com/PaulaEPR)
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+
+## ¿Dónde verlo?
+
+[Buscador de personajes de Harry Potter](https://paulaepr.github.io/buscador-personajes-harry-potter/)
+
+![Mockup Desktop Version](./src/images/readme/preview.gif)
+
+## Instalación y configuración
+
+**Requerimientos:**
+
+- Necesitas tener `node` y `npm` instalados.
+
+**Clonar el repositorio**
+
+```
+git clone URL
+```
+
+**Instalar las dependencias**
+
+```
+npm install
+```
+
+**Ejecutar la aplicación**
+
+```
+npm start
+```
+
+- Ve a [http://localhost:3000](http://localhost:3000) para ver la app en el navegador.
+
+**Desplegar el entorno de producción**
+
+```
+npm run githubpages
+```
+
+# React: Ejercicio de evaluación
 
 El ejercicio consiste en desarrollar una página web con un listado de personajes de Harry Potter, que podemos filtrar por el nombre del personaje y casa:
 
